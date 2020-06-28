@@ -13,16 +13,16 @@
     <div class="col-md-12">
       <fieldset class="form-group">
         <h4 class="mb-3">Mail Piece Information</h4>
-        <form action="/members/"  class="needs-validation mb-4" method="post" novalidate>
-            <div class="row">
+        <form action="/getrate"  class="needs-validation mb-4" method="GET" novalidate>
+          <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="service">Service</label>
                     <select class="form-control" id="service" name="service" required>
                         <option value="">Choose...</option>'
-                        <option value="letterStamped">Letters (Stamped)</option>
-                        <option value="letterMetered">Letters (Metered)</option>
+                        <option value="stamped">Letters (Stamped)</option>
+                        <option value="metered">Letters (Metered)</option>
                         <option value="flat">Large Envelopes (Flats)</option>
-                        <option value="package">First-Class Package Service—Retail</option>
+                        <option value="parcel">First-Class Package Service—Retail</option>
                     </select>
                     <div class="invalid-feedback">
                         Service is Required.
@@ -36,8 +36,9 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-sm mr-2" type="submit">Get Rate</button>
+            <button class="btn btn-primary btn-sm mr-2" type="submit" id="submit">Get Rate</button>
         </form>
+        <div class="alert-success p-1" id="rate-message"><%= rateMessage %></div>
     </div>
 </div>
 <% include ../partials/scripts.ejs %>
